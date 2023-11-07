@@ -167,7 +167,7 @@ function Transfer_In() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.slice(0, 3).map((user, index) => {
+                  {data.slice(0, 5).map((user, index) => {
                     return (
                       <tr key={index} className="text-center">
                         <td className="whitespace-nowrap px-6 py-4 font-medium">

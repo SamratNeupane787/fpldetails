@@ -28,10 +28,16 @@ export default function Home() {
         <Transfer_In />
       </div>
 
-      <div className=" grid grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
-        <div></div>
-        <div></div>
-      </div>
+      <footer>
+        <h2 className=" text-center">
+          Developed by{" "}
+          <span className=" text-green-500">
+            <a href="https://samratneupane.com.np" target="_blank">
+              Samrat Neupane
+            </a>
+          </span>
+        </h2>
+      </footer>
     </main>
   );
 }
