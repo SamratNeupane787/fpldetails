@@ -15,12 +15,10 @@ export default function Home() {
         </h1>
         <div className=" text-center text-xl bg-gradient-to-r from-teal-200 to-teal-500 rounded-3xl w-1/2">
           <h2 className=" font-semibold text-center">
-            <span className=" mx-4">Gameweek 11</span>
+            <span className=" mx-4">Gameweek 12</span>
           </h2>
         </div>
-        <h3 className=" text-lg font-bold my-5">
-          Sat, 4 November 2023 4:45 pm
-        </h3>
+        <h3 className=" text-lg font-bold my-5">Sat 11 Nov 16:45</h3>
       </div>
 
       <div>

@@ -136,7 +136,10 @@ function Transfer_In() {
                 ).format(dateObject);
 
                 return (
-                  <div className=" text-center  bg-gradient-to-r from-teal-200 to-teal-500  rounded-2xl">
+                  <div
+                    key={index}
+                    className=" text-center  bg-gradient-to-r from-teal-200 to-teal-500  rounded-2xl"
+                  >
                     <h2 className="  mx-2 my-2 text-2xl font-semibold">
                       {formattedDate}
                     </h2>
