@@ -55,7 +55,11 @@ export default function Home() {
             "en-US",
             options
           ).format(dateObject);
-          return <h3 className=" text-lg font-bold my-5">{formattedDate}</h3>;
+          return (
+            <h3 key={index} className=" text-lg font-bold my-5">
+              {formattedDate}
+            </h3>
+          );
         })}
       </div>
 
