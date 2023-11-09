@@ -33,7 +33,11 @@ export default function Home() {
         <div className=" text-center text-xl bg-gradient-to-r from-teal-200 to-teal-500 rounded-3xl w-1/2">
           <h2 className=" font-semibold text-center">
             {data.slice(1, 2).map((user, index) => {
-              return <span className=" mx-4">Gameweek {user.GW}</span>;
+              return (
+                <span key={index} className=" mx-4">
+                  Gameweek {user.GW}
+                </span>
+              );
             })}
           </h2>
         </div>

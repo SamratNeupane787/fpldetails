@@ -1,7 +1,7 @@
 import { data } from "autoprefixer";
 
 import React, { useEffect, useState } from "react";
-
+import GoalScorer from "./GoalScorer";
 function InjuredList() {
   const [data, setData] = useState([]);
 
@@ -54,6 +54,12 @@ function InjuredList() {
               </tbody>
             </table>
           </div>
+        </div>
+        <div className=" text-4xl font-semibold">
+          <div className="text-center">
+            <h1>Goals Scored</h1>
+          </div>
+          <GoalScorer />
         </div>
       </div>
     </>
