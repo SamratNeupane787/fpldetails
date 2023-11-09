@@ -1,9 +1,26 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Transfer_In from "./Components/toptransferin";
+import InjuredList from "./Components/InjuredList";
+import { useState, useEffect } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const apiurl = fetch(
+      "https://script.googleusercontent.com/macros/echo?user_content_key=LlYvRb_YikgBe6f-3foykAzIkn2mWicVVwcj7-QeFQ_UCVRlyhDGW3BMExKBKn9-kfusHKP8BdXdCv58hrg7InARc_d1mO4rm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEi3qJJG5W8GpZ6hZxzvwT_sCoN2HqwO4K8Ic6Fer0nKtskrYaAFLZgUfBEJtenesaHAHfIkpjMM8emNo9ioDhzXx_QhhIOM7dz9Jw9Md8uu&lib=MS-y7okCAx6lw75sFDttdWD4gJKHnd-OI"
+    )
+      .then((res) => {
+        return res.json();
+      })
+
+      .then((apidata) => {
+        const filterdata = apidata.data.filter((entry) => {});
+        setData(apidata.data);
+      });
+  }, []);
   return (
     <main>
       <div className=" text-center text-4xl font-bold">
@@ -15,10 +32,27 @@ export default function Home() {
         </h1>
         <div className=" text-center text-xl bg-gradient-to-r from-teal-200 to-teal-500 rounded-3xl w-1/2">
           <h2 className=" font-semibold text-center">
-            <span className=" mx-4">Gameweek 12</span>
+            {data.slice(1, 2).map((user, index) => {
+              return <span className=" mx-4">Gameweek {user.GW}</span>;
+            })}
           </h2>
         </div>
-        <h3 className=" text-lg font-bold my-5">Sat 11 Nov 16:45</h3>
+
+        {data.slice(0, 1).map((user, index) => {
+          const apiDate = user.deadline;
+          const dateObject = new Date(apiDate);
+
+          const options = {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          };
+          const formattedDate = new Intl.DateTimeFormat(
+            "en-US",
+            options
+          ).format(dateObject);
+          return <h3 className=" text-lg font-bold my-5">{formattedDate}</h3>;
+        })}
       </div>
 
       <div>
@@ -26,6 +60,9 @@ export default function Home() {
           Top 5 Transfer In/Out
         </h3>
         <Transfer_In />
+      </div>
+      <div className=" text-center">
+        <InjuredList />
       </div>
 
       <footer>

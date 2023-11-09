@@ -116,9 +116,9 @@ function Transfer_In() {
 
         {/* END OF CAPTAINCY SECTION AND START OF NEW PRICE CHANGE (UP) */}
         <div>
-          <div className="grid  place-items-center sm:grid-cols-1">
+          <div className="grid  place-items-center my-8 sm:grid-cols-1">
             <div>
-              <h1 className="text-center font-semibold text-3xl pb-6">
+              <h1 className="text-center font-semibold text-3xl py-6">
                 Price Change
               </h1>
               {data.slice(0, 1).map((user, index) => {
@@ -231,9 +231,9 @@ function Transfer_In() {
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
-                            stroke-width="1.5"
+                            stroke-width={1.5}
                             stroke="currentColor"
-                            class="w-6 h-6 text-red-600"
+                            class="w-6 h-6 text-red-600 text-center"
                           >
                             <path
                               stroke-linecap="round"
