@@ -14,7 +14,7 @@ function InjuredList() {
   }, []);
   return (
     <>
-      <div className=" grid grid-cols-2 place-items-center mb-8 ">
+      <div className=" grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 place-items-center mb-8 border-t-4 border-black-400">
         <div className=" overflow-auto w-auto h-96 ">
           <div className=" grid grid-cols-1 border-2 my-6">
             <div className=" my-6">
@@ -55,8 +55,8 @@ function InjuredList() {
             </table>
           </div>
         </div>
-        <div className=" text-4xl font-semibold">
-          <div className="text-center">
+        <div className=" text-4xl font-semibold ">
+          <div className="text-center mt-4">
             <h1>Goals Scored</h1>
           </div>
           <GoalScorer />

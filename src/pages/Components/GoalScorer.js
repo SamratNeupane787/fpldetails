@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 function GoalScorer() {
   const [data, setData] = useState([]);
@@ -11,44 +12,48 @@ function GoalScorer() {
   }, []);
   return (
     <>
-      <div className=" overflow-auto w-auto h-auto ">
-        <div className=" grid grid-cols-1 border-2 my-6">
-          <table className="max-w-full text-center text-sm font-light">
-            <thead className="border-b font-medium dark:border-neutral-500">
-              <tr>
-                <th scope="col" className="px-6 py-4 text-green-500">
-                  Player
-                </th>
+      <SkeletonTheme baseColor="#0B5D1E" highlightColor="#000000">
+        <div className=" overflow-auto w-auto h-auto ">
+          <div className=" grid grid-cols-1 border-2 my-6">
+            <table className="max-w-full text-center text-sm font-light">
+              <thead className="border-b font-medium dark:border-neutral-500">
+                <tr>
+                  <th scope="col" className="px-6 py-4 text-green-500">
+                    Player
+                  </th>
 
-                <th scope="col" className="px-6 py-4 text-red-600">
-                  Club
-                </th>
-                <th scope="col" className="px-6 py-4 text-red-600">
-                  Stats
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((user, index) => {
-                return (
-                  <tr
-                    key={index}
-                    className="border-b font-medium border-yellow-500"
-                  >
-                    <td className="whitespace-nowrap px-6 py-4 font-medium text-[#972D07]">
-                      {user.Name}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4">{user.Club}</td>
-                    <td className="whitespace-nowrap px-6 py-4">
-                      {user.Stats}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                  <th scope="col" className="px-6 py-4 text-red-600">
+                    Club
+                  </th>
+                  <th scope="col" className="px-6 py-4 text-red-600">
+                    Stats
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((user, index) => {
+                  return (
+                    <tr
+                      key={index}
+                      className="border-b font-medium border-yellow-500"
+                    >
+                      <td className="whitespace-nowrap px-6 py-4 font-medium text-[#972D07]">
+                        {user.Name || <Skeleton />}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4">
+                        {user.Club || <Skeleton />}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4">
+                        {user.Stats || <Skeleton />}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </SkeletonTheme>
     </>
   );
 }
